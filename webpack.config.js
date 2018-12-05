@@ -5,9 +5,9 @@ const isProd = process.env.NODE_ENV === "production"
 
 module.exports = {
   mode: isProd ? "production" : "development",
-  entry: "./src/App.tsx",
+  entry: "./src/ts/script.ts",
   output: {
-    filename: "js/bundle.js",
+    filename: "js/script.js",
     path: path.resolve(__dirname, "dist")
   },
   module: {
@@ -40,7 +40,14 @@ module.exports = {
   },
   plugins: [
     new htmlWebpackPlugin({
-      template: "index.html"
+      filename: "popup.html",
+      template: "./src/html/popup.html",
+      inject: false,
+    }),
+    new htmlWebpackPlugin({
+      filename: "option.html",
+      template: "./src/html/option.html",
+      inject: false,
     })
   ],
   devtool: isProd ? false : "inline-source-map",
