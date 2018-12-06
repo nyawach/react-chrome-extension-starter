@@ -1,26 +1,26 @@
 {
-    "name": "green-utility",
-    "version": "0.0.1",
-    "manifest_version": 2,
-    "description": "green utility",
-    "icons": {
-        "16": "dist/images/icon-16.png",
-        "128": "dist/images/icon-128.png"
-    },
-    "default_locale": "ja",
-    "options_page": "dist/option.html",
-    "page_action": {
-        "default_icon": {
-            "19": "dist/images/icon-19.png",
-            "38": "dist/images/icon-38.png"
-        },
-        "default_title": "green utility",
-        "default_popup": "dist/popup.html"
-    },
-    "content_scripts": [
-      {
-        "matches": ["https://*/*"],
-        "js": ["dist/js/script.js"]
-      }
-    ]
+  "name": "green-utility",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Green utilities plugin",
+  "icons": {
+    "16": "img/icon-16.png",
+    "128": "img/icon-128.png"
+  },
+  "default_locale": "en",
+  "page_action": {
+      "default_icon": {
+          "19": "img/icon-19.png",
+          "38": "img/icon-38.png"
+      },
+      "default_title": "green-utility",
+      "default_popup": "popup.html"
+  },
+  "background": {},
+  "content_scripts": [
+    {
+      "matches": [ "http://*/*", "https://*/*" ],
+      "js": ["js/script.js"]
+    }
+  ]
 }
