@@ -1,0 +1,26 @@
+{
+  "name": "green-utility",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Green utilities plugin",
+  "icons": {
+    "16": "img/icon-16.png",
+    "128": "img/icon-128.png"
+  },
+  "default_locale": "en",
+  "page_action": {
+      "default_icon": {
+          "19": "img/icon-19.png",
+          "38": "img/icon-38.png"
+      },
+      "default_title": "green-utility",
+      "default_popup": "popup.html"
+  },
+  "background": {},
+  "content_scripts": [
+    {
+      "matches": [ "http://*/*", "https://*/*" ],
+      "js": ["js/script.js"]
+    }
+  ]
+}
