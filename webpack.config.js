@@ -51,9 +51,4 @@ module.exports = {
     })
   ],
   devtool: isProd ? false : "inline-source-map",
-  devServer: {
-    contentBase: path.resolve(__dirname, "dist"),
-    port: 3000,
-    hot: false,
-  },
 }
