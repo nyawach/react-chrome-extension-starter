@@ -1,5 +1,7 @@
 const path = require("path")                             // 絶対パスに変換するために
-const htmlWebpackPlugin = require("html-webpack-plugin") // index.htmlをビルドチェインの中で作っちゃう
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CleanWebackPlugin = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require("html-webpack-plugin") // index.htmlをビルドチェインの中で作っちゃう
 
 const isProd = process.env.NODE_ENV === "production"
 
@@ -39,16 +41,18 @@ module.exports = {
     extensions: [ ".tsx", ".ts", ".js" ]
   },
   plugins: [
-    new htmlWebpackPlugin({
+    new CleanWebackPlugin("./dist"),
+    new HtmlWebpackPlugin({
       filename: "popup.html",
       template: "./src/html/popup.html",
       inject: false,
     }),
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       filename: "option.html",
       template: "./src/html/option.html",
       inject: false,
-    })
+    }),
+    new CopyWebpackPlugin([{ from: 'static', to: './' }]),
   ],
   devtool: isProd ? false : "inline-source-map",
 }
