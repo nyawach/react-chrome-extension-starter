@@ -1,15 +1,21 @@
 {
   "compilerOptions": {
-    "module": "es6",
+    "module": "esnext",
     "target": "es5",
     "jsx": "react",
     "lib": ["es2018", "dom"],
     "moduleResolution": "node",
     "removeComments": true,
-    "strict": true,
+    "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
-  }
+    "suppressImplicitAnyIndexErrors": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }

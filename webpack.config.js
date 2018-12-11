@@ -7,9 +7,11 @@ const isProd = process.env.NODE_ENV === "production"
 
 module.exports = {
   mode: isProd ? "production" : "development",
-  entry: "./src/ts/script.ts",
+  entry: {
+    "js/script.js": "./src/js/entries/script.tsx",
+  },
   output: {
-    filename: "js/script.js",
+    filename: "[name]",
     path: path.resolve(__dirname, "dist")
   },
   module: {
@@ -34,8 +36,18 @@ module.exports = {
         options: {
           configFile: isProd ? "tsconfig.json" : "tsconfig.dev.json",
         }
-      }
-    ]
+      },
+      {
+        loader: "pug-loader",
+        test: /\.pug$/,
+        exclude: [
+          /node_modules/
+        ],
+        options: {
+          pretty: true,
+        },
+      },
+    ],
   },
   resolve: {
     extensions: [ ".tsx", ".ts", ".js" ]
@@ -44,12 +56,12 @@ module.exports = {
     new CleanWebackPlugin("./dist"),
     new HtmlWebpackPlugin({
       filename: "popup.html",
-      template: "./src/html/popup.html",
+      template: "./src/html/popup.pug",
       inject: false,
     }),
     new HtmlWebpackPlugin({
       filename: "option.html",
-      template: "./src/html/option.html",
+      template: "./src/html/option.pug",
       inject: false,
     }),
     new CopyWebpackPlugin([{ from: 'static', to: './' }]),
