@@ -1,8 +1,8 @@
 {
-  "name": "green-utility",
+  "name": "react-chrome-extension-starter",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Green utilities plugin",
+  "description": "Starter kit by chrome extension",
   "icons": {
     "16": "img/icon-16.png",
     "128": "img/icon-128.png"
@@ -13,7 +13,7 @@
           "19": "img/icon-19.png",
           "38": "img/icon-38.png"
       },
-      "default_title": "green-utility",
+      "default_title": "react-chrome-extension-starter",
       "default_popup": "popup.html"
   },
   "background": {},
