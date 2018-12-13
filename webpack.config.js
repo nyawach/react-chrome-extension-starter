@@ -25,6 +25,8 @@ module.exports = {
         ],
         options: {
           emitErrors: true,
+          configFile: "tslint.json",
+          fix: true,
         }
       },
       {
