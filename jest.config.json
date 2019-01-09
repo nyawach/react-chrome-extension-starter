@@ -1,0 +1,5 @@
+{
+  "jestWebpackResolver": {
+    "webpackConfig": "./webpack.config.js"
+  }
+}

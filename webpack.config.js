@@ -1,4 +1,5 @@
 const path = require("path")                             // 絶対パスに変換するために
+const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require("html-webpack-plugin") // index.htmlをビルドチェインの中で作っちゃう
@@ -9,6 +10,7 @@ module.exports = {
   mode: isProd ? "production" : "development",
   entry: {
     "js/script.js": "./src/js/entries/script.tsx",
+    // "js/popup.js": "./src/js/entries/popup.tsx",
   },
   output: {
     filename: "[name]",
@@ -65,6 +67,9 @@ module.exports = {
       filename: "option.html",
       template: "./src/html/option.pug",
       inject: false,
+    }),
+    new webpack.DefinePlugin({
+      'precess.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
     new CopyWebpackPlugin([{ from: 'static', to: './' }]),
   ],
